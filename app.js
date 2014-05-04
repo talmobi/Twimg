@@ -42,9 +42,9 @@ function startServer() {
         res.end(/* icon content here */);
      } else {
      	var n = Math.floor(Math.random() * imgDataBuffers.length);
-			res.writeHead(200, {'Content-Type': 'image/png' });
-			res.end(imgDataBuffers[n], 'binary');
-			console.log("sent image number: " + n);
+     	res.writeHead(200, {'Content-Type': 'image/png' });
+     	res.end(imgDataBuffers[n], 'binary');
+     	console.log("sent image number: " + n);
      }
 	}).listen(3000, '127.0.0.1');
 
