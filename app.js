@@ -4,6 +4,8 @@ var fs = require('fs');
 var path = "img.png";
 var url = 'http://i.imgur.com/0kLB26Y.png';
 
+var images = require('images');
+
 var file;
 
 // check if img exists
@@ -32,8 +34,14 @@ fs.exists(path, function(exists) {
 });
 
 
+var img;
 function init() {
-	file = fs.readFileSync(path);
+	var output = "tmp.png";
+
+	images(path).save(output);
+
+	img = fs.readFileSync(output);
+
 	startServer();
 }
 
@@ -43,7 +51,7 @@ function startServer() {
 		//res.write("Hello.");
 		//var img = fs.readFileSync(path);
 		res.writeHead(200, {'Content-Type': 'image/png' });
-		res.end(file, 'binary');
+		res.end(img, 'binary');
 		console.log("sent file");
 	}).listen(3000, '127.0.0.1');
 	console.log("Server listening at port: 3000");
