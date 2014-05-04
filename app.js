@@ -45,6 +45,8 @@ function init() {
 };
 
 function startServer() {
+	var port = process.argv[2] || 40000;
+
 	http.createServer(function(req, res) {
 		if (req.url === '/favicon.ico') {
         res.writeHead(200, {'Content-Type': 'image/x-icon'} );
@@ -57,9 +59,9 @@ function startServer() {
 			// randomize the subimage
 			n = Math.floor(Math.random() * imgDataBuffers.length);
      }
-   }).listen(3000, '127.0.0.1');
+   }).listen(port);
 
-	console.log("Server listening at port: 3000");
+	console.log("Server listening at port: " + port);
 }
 
 /**
