@@ -2,10 +2,10 @@
 <head>
 	<title>Test</title>
 </head>
-<body onload='getData()'>
+<body>
 	<img id="img" />
 	<script type="text/javascript">
-		function getData() {
+		(function getData() {
 			var canvas = document.createElement('canvas');
 			canvas.width = 40;
 			canvas.height = 40;
@@ -21,7 +21,7 @@
 			};
 
 			img.src = 'tmp.png';
-		};
+		})();
 	</script>
 </body>
 </html>
