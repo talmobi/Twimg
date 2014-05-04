@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body onload='getData()'>
+	<img id="img" />
+	<script type="text/javascript">
+		function getData() {
+			var canvas = document.createElement('canvas');
+			canvas.width = 40;
+			canvas.height = 40;
+
+			var ctx = canvas.getContext('2d');
+
+			var img = new Image();
+			
+			img.onload = function() {
+				ctx.drawImage(img, 0,0,40,40,0,0,40,40);
+
+				document.getElementById('img').src = canvas.toDataURL();
+			};
+
+			img.src = 'tmp.png';
+		};
+	</script>
+</body>
+</html>
