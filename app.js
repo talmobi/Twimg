@@ -1,49 +1,10 @@
 var http = require('http');
-var fs = require('fs');
-
-var path = "img.png";
 var url = 'http://i.imgur.com/0kLB26Y.png';
+var Canvas = require('canvas');
 
-var images = require('images');
+var img = new Canvas.Image();
 
-var file;
-
-// check if img exists
-fs.exists(path, function(exists) {
-	if (!exists) {
-		file = fs.createWriteStream(path);
-		// download it form the url
-		http.get(process.argv[2] || url, function(res) {
-			if (res.statusCode !== 200) {
-				console.log("Failed to downoad image, exiting.");
-				process.exit(1);
-				return;
-			} else {
-				console.log("Saving image.");
-				res.pipe(file)
-				file.on('finish', function() {
-					console.log("Done.");
-					init();
-				});
-			}
-		});
-	} else {
-		// file already exists in the file system
-		init();
-	}
-});
-
-
-var img;
-function init() {
-	var output = "tmp.png";
-
-	images(path).save(output);
-
-	img = fs.readFileSync(output);
-
-	startServer();
-}
+console.log(img);
 
 function startServer() {
 	http.createServer(function(req, res) {
