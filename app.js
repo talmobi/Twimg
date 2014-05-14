@@ -41,7 +41,11 @@ function init() {
 		startServer();
 	}
 
-	img.src = url;
+	// load the image
+	fs.readFile( url, function(err, image) {
+		if (err) throw err;
+		img.src = image;
+	});
 };
 
 function startServer() {
