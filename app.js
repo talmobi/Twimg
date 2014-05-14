@@ -67,4 +67,4 @@ function startServer() {
 /**
 	*	Start the app
 	*/
-init();
+setTimeout(init, 2000);
