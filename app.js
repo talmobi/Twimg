@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 //var url = 'http://i.imgur.com/0kLB26Y.png';
-var url = 'tmp.png';
+var url = './tmp.png';
 
 var w = 40;
 var h = 40;
