@@ -8,7 +8,7 @@ var h = 40;
 var n = 0; // subimage index
 
 var Canvas = require('canvas')
-	,	canvas = new Canvas(w, h)
+	,	canvas = Canvas.createCanvas(w, h)
 	, ctx = canvas.getContext('2d');;
 
 // holds the sub image data
